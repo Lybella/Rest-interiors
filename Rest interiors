@@ -1,0 +1,173 @@
+import React from "react";
+
+function ServiceCard({ icon, title, description }) {
+  return (
+    <div className="p-6 border rounded-2xl shadow-md bg-[#F5F3F7]">
+      <div className="text-4xl mb-4">{icon}</div>
+      <h3 className="text-xl font-bold mb-2">{title}</h3>
+      <p>{description}</p>
+    </div>
+  );
+}
+
+function BlogPostPreview({ title, summary }) {
+  return (
+    <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+      <h3 className="text-xl font-semibold mb-2 text-[#7B68EE]">{title}</h3>
+      <p>{summary}</p>
+      <button className="mt-4 text-sm font-semibold text-[#7B68EE] hover:underline">Read More</button>
+    </div>
+  );
+}
+
+function ContactSection() {
+  return (
+    <section id="contact" className="bg-[#D8BFD8] py-16 px-6 text-center">
+      <h2 className="text-3xl font-semibold mb-6">Get in Touch</h2>
+      <p className="mb-8">Have a question or want to collaborate? Fill out the form below and we’ll get back to you soon.</p>
+      <form className="max-w-2xl mx-auto space-y-6 bg-white p-8 rounded-2xl shadow-lg">
+        <div>
+          <label className="block mb-2 font-medium">Your Name</label>
+          <input type="text" className="w-full px-4 py-2 rounded-lg border border-gray-300" placeholder="Name" required />
+        </div>
+        <div>
+          <label className="block mb-2 font-medium">Email</label>
+          <input type="email" className="w-full px-4 py-2 rounded-lg border border-gray-300" placeholder="Email" required />
+        </div>
+        <div>
+          <label className="block mb-2 font-medium">Message</label>
+          <textarea className="w-full px-4 py-2 rounded-lg border border-gray-300" rows="4" placeholder="Write your message here..." required></textarea>
+        </div>
+        <button type="submit" className="bg-[#7B68EE] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#6757cc]">Send Message</button>
+      </form>
+    </section>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <div className="bg-[#F5F3F7] text-gray-800">
+      {/* Hero Section */}
+      <section className="bg-[#7B68EE] text-white py-20 px-6 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">Bringing color and elegance to your space</h1>
+        <p className="text-lg md:text-xl mb-8">Introducing your walls to a world of passion and design.</p>
+        <div className="flex justify-center gap-4">
+          <button className="bg-white text-[#7B68EE] px-6 py-3 rounded-full font-semibold hover:bg-[#e2dfff]">Book a Consultation</button>
+          <button className="border border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-[#7B68EE]">View Portfolio</button>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="bg-[#EDE6F6] py-16 px-6 text-center md:text-left">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+          <img src="/designer.jpg" alt="Designer" className="w-48 h-48 rounded-full object-cover" />
+          <div>
+            <h2 className="text-3xl font-semibold mb-4">About</h2>
+            <p className="text-lg">I'm an interior designer and painter with a passion for transforming spaces into beautiful, inspiring environments. My goal is to bring your vision to life with creativity and attention to detail.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="bg-white py-16 px-6 text-center">
+        <h2 className="text-3xl font-semibold mb-10">Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <ServiceCard icon="🎨" title="Interior Painting" description="Precision painting with a wide range of premium color options." />
+          <ServiceCard icon="🖌️" title="Custom Wall Finishes" description="Textures, murals, and artistic finishes tailored to your style." />
+          <ServiceCard icon="🏠" title="Design Consultation" description="Collaborative design planning to bring your dream space to life." />
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section className="bg-[#D8BFD8] py-16 px-6">
+        <h2 className="text-3xl font-semibold text-center mb-10 text-[#333]">Portfolio</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <img
+              key={i}
+              src={`/portfolio${i}.jpg`}
+              alt={`Project ${i}`}
+              className="w-full h-60 object-cover rounded-xl shadow-md"
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Booking Form Section */}
+      <section className="bg-white py-16 px-6">
+        <h2 className="text-3xl font-semibold text-center mb-8">Book an Appointment</h2>
+        <form className="max-w-2xl mx-auto space-y-6 bg-[#F5F3F7] p-8 rounded-2xl shadow-lg">
+          <div>
+            <label className="block mb-2 font-medium">Full Name</label>
+            <input type="text" className="w-full px-4 py-2 rounded-lg border border-gray-300" placeholder="Your name" required />
+          </div>
+          <div>
+            <label className="block mb-2 font-medium">Email Address</label>
+            <input type="email" className="w-full px-4 py-2 rounded-lg border border-gray-300" placeholder="you@example.com" required />
+          </div>
+          <div>
+            <label className="block mb-2 font-medium">Location</label>
+            <input type="text" className="w-full px-4 py-2 rounded-lg border border-gray-300" placeholder="City, Area, ZIP code" required />
+          </div>
+          <div>
+            <label className="block mb-2 font-medium">Service Required</label>
+            <select className="w-full px-4 py-2 rounded-lg border border-gray-300" required>
+              <option value="">Select a service</option>
+              <option value="painting">Interior Painting</option>
+              <option value="wall">Custom Wall Finishes</option>
+              <option value="consultation">Design Consultation</option>
+            </select>
+          </div>
+          <div>
+            <label className="block mb-2 font-medium">Additional Details</label>
+            <textarea className="w-full px-4 py-2 rounded-lg border border-gray-300" rows="4" placeholder="Tell us more about your project..."></textarea>
+          </div>
+          <button type="submit" className="bg-[#7B68EE] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#6757cc]">Submit Booking</button>
+        </form>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="bg-[#EDE6F6] py-16 px-6">
+        <h2 className="text-3xl font-semibold text-center mb-10">What Clients Are Saying</h2>
+        <div className="max-w-4xl mx-auto grid gap-8 md:grid-cols-2">
+          <div className="bg-white p-6 rounded-2xl shadow">
+            <p className="italic mb-4">“Absolutely thrilled with the transformation. The colors and design were spot on!”</p>
+            <h4 className="font-bold text-[#7B68EE]">— Sarah J.</h4>
+          </div>
+          <div className="bg-white p-6 rounded-2xl shadow">
+            <p className="italic mb-4">“Professional, punctual, and extremely talented. Highly recommended!”</p>
+            <h4 className="font-bold text-[#7B68EE]">— Daniel M.</h4>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Signup Section */}
+      <section className="bg-white py-16 px-6 text-center">
+        <h2 className="text-3xl font-semibold mb-4">Stay Inspired</h2>
+        <p className="mb-6">Get interior design tips, exclusive offers, and updates right to your inbox.</p>
+        <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+          <input type="email" placeholder="Enter your email" className="flex-1 px-4 py-2 rounded-full border border-gray-300" required />
+          <button type="submit" className="bg-[#7B68EE] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#6757cc]">Subscribe</button>
+        </form>
+      </section>
+
+      {/* Blog Section */}
+      <section className="bg-[#EDE6F6] py-16 px-6">
+        <h2 className="text-3xl font-semibold text-center mb-10">From the Blog</h2>
+        <div className="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto">
+          <BlogPostPreview title="Top 5 Interior Trends of the Year" summary="A look at the latest trends making waves in the design world." />
+          <BlogPostPreview title="How to Choose the Right Paint Palette" summary="Simple tips to help you select colors that reflect your personality." />
+          <BlogPostPreview title="Before & After: Small Space Makeovers" summary="See how compact rooms can be transformed into stylish havens." />
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <ContactSection />
+
+      {/* Footer */}
+      <footer className="bg-[#7B68EE] text-white text-center py-6">
+        <p>&copy; {new Date().getFullYear()} Designed by Your Name | <a href="#contact" className="underline hover:text-[#EDE6F6]">Contact</a></p>
+      </footer>
+    </div>
+  );
+}
